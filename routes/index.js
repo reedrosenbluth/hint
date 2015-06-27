@@ -1,9 +1,15 @@
 var express = require('express');
+var nlp = require('nlp_compromise');
 var router = express.Router();
 
-/* GET home page. */
+var sample = 'So I just had this meeting with Mark Zuckerberg';
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var people = nlp.pos(sample).people();
+  var data = {
+    people: people
+  };
+  res.render('index', data);
 });
 
 module.exports = router;
