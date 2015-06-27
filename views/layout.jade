@@ -5,5 +5,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="//code.jquery.com/jquery-1.11.3.min.js")
     script(src="/js/speech.js")
+    script(src='/socket.io/socket.io.js')
+    script.
+      var socket = io('http://localhost:3000');
   body
     block content
