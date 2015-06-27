@@ -7,6 +7,6 @@ html
     script(src="/js/speech.js")
     script(src='/socket.io/socket.io.js')
     script.
-      var socket = io('http://localhost:3000');
+      var socket = io('http://' + location.host);
   body
     block content
