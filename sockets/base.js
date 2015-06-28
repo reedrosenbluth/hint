@@ -21,11 +21,12 @@ function processResult(result) {
   //});
   //
   entities.forEach(function(entity, index, array) {
-    var json_response = info.getWikiInfo(entity)
+      console.log(entity.text);
+    info.getWikiInfo(entity.text)
         .then(function(data) {
-          res.render('index', data);
+            console.log(data);
         });
-    console.log(json_response);
+
   })
 
   //people.forEach(function(person, index, array) {
