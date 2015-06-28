@@ -2,7 +2,6 @@ var nlp = require('nlp_compromise')
 var nlp = require('nlp_compromise');
 var info = require('../lib/info');
 
-var results = [];
 var black_list = [];
 var white_list = ['Mark Zuckerberg', 'Facebook'];
 
@@ -10,18 +9,19 @@ module.exports = function (io) {
   
   // socket.io events
   io.on( "connection", function( socket ) {
+    var already_heard = [];
 
     socket.on('new_result', function (result) {
-      processResult(socket, result, false);
+      processResult(socket, result, already_heard, false);
     });
     socket.on('new_raw_result', function (result) {
-      processResult(socket, result, true);
+      processResult(socket, result, already_heard, true);
     });
 
   });
 }
 
-function processResult(socket, result, isRaw) {
+function processResult(socket, result, results, isRaw) {
   socket.emit('started_speaking');
   var text = result.data;
   var entities = nlp.pos(text).nouns();
