@@ -94,7 +94,6 @@ body {
     margin-left:10px;
     overflow:hidden;
     width:auto;
-    height:140px;
     margin-right:10px;
     margin-bottom:2px;
 }
@@ -103,7 +102,7 @@ img {
     margin-right:10px;
     max-width:170px; /* you can use % */
     height: auto;
-    margin-bottom:10px;
+    margin-bottom:1px;
     max-height:130px;
 }
 
