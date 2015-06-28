@@ -96,5 +96,7 @@
   "webkit": "WebKit",
   "open source": "Open source",
   "imap": "Internet Message Access Protocol",
-  "lp" :"nlp"
+  "lp" :"nlp",
+  "meteor" : "Meteor (web framework)",
+  "meteorjs" : "Meteor (web framework)"
 }
