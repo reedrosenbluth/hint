@@ -99,5 +99,6 @@
   "lp" :"nlp",
   "meteor" : "Meteor (web framework)",
   "meteorjs" : "Meteor (web framework)",
-  "stanford": "Stanford University"
+  "stanford": "Stanford University",
+  "yahoo": "Yahoo!"
 }

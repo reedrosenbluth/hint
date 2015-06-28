@@ -68,5 +68,16 @@ $(document).ready(function () {
 
     recognition.start();
 
+    $(document).keypress(function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        try {
+          recognition.start();
+          console.log('Speech started!');
+        } catch (err) { console.log('Too early, hold on!'); }
+
+      }
+    })
+
   }
 });
