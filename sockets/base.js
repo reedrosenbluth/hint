@@ -22,10 +22,13 @@ module.exports = function (io) {
         if (results.indexOf(entity_text) <= -1 && tags.indexOf('PRP') <= -1) {
             console.log('entity: ' + entity_text);
             info.getWikiInfo(entity_text)
-                .then(function (data) {
-                    results.push(entity_text);
-                    socket.emit('new_hint', data);
-                });
+              .then(function (data) {
+                  results.push(entity_text);
+                  socket.emit('new_hint', data);
+              })
+              .catch(function(err) {
+                console.log(err);
+              });
         }
       });
     }

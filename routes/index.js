@@ -9,10 +9,6 @@ router.get('/', function(req, res, next) {
 })
 
 router.get('/:search', function(req, res, next) {
-  // info.getWikiInfo(req.params.search.replace('+',' '))
-  //   .then(function(data) {
-  //     res.render('index', data);
-  //   });
   res.render('index');
 });
 
