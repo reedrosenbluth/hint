@@ -4,8 +4,6 @@ if (typeof String.prototype.startsWith != 'function') {
   };
 }
 
-var socket = io('http://' + location.host);
-
 socket.on('new_hint', function (data) {
   console.log(data);
   addHint(data.title, data.summary, data.image)
@@ -24,8 +22,7 @@ $(document).ready(function () {
       for (var i = event.resultIndex; i < event.results.length; ++i) {
 
           var confidence = event.results[i][0].confidence;
-          if (i === (event.results.length - 1) && !event.results[i].isFinal) {
-
+          if (confidence > 0.85 && i === (event.results.length - 1) && !event.results[i].isFinal) {
             new_result = event.results[i][0].transcript;
 
             if (new_result.startsWith(interim_result)) {
