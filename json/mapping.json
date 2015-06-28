@@ -98,5 +98,6 @@
   "imap": "Internet Message Access Protocol",
   "lp" :"nlp",
   "meteor" : "Meteor (web framework)",
-  "meteorjs" : "Meteor (web framework)"
+  "meteorjs" : "Meteor (web framework)",
+  "stanford": "Stanford University"
 }
