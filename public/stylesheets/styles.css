@@ -121,7 +121,7 @@ img {
 
 .bar_no_a {
     animation: none !important;
-    -webkit-animation: none !important;
+    -webkit-animation:  none !important;
 
 }
 

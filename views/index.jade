@@ -8,6 +8,8 @@ html
     link(href="http://fonts.googleapis.com/css?family=Lato:400,300", rel="stylesheet", type="text/css")
     script(src="http://code.jquery.com/jquery-1.10.2.min.js")
     script(src='/socket.io/socket.io.js')
+    script.
+      var socket = io('http://' + location.host);
     script(src="./js/site.js")
     script(src="/js/speech.js")
     script(src="./js/mustache.min.js")
@@ -40,7 +42,7 @@ html
           a(href="#")
             span(style="font-weight:400;") hint
             | :
-            span(color="#555") hints for your conversation
+            span(color="#555", style="margin-left:3px;") hints for your conversation
         span.pull-right
           #bars
             .bar

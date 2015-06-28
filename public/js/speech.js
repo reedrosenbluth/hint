@@ -4,13 +4,6 @@ if (typeof String.prototype.startsWith != 'function') {
   };
 }
 
-var socket = io('http://' + location.host);
-
-socket.on('new_hint', function (data) {
-  console.log(data);
-  addHint(data.title, data.summary, data.image)
-})
-
 $(document).ready(function () {
   if ('webkitSpeechRecognition' in window) {
     var recognition = new webkitSpeechRecognition();
@@ -35,9 +28,9 @@ $(document).ready(function () {
       for (var i = event.resultIndex; i < event.results.length; ++i) {
 
           var confidence = event.results[i][0].confidence;
-          if ((confidence > 0.85) && i === (event.results.length - 1) && !event.results[i].isFinal) {
-
-            new_result = event.results[i][0].transcript;
+          var new_result = event.results[i][0].transcript;
+          console.log(confidence)
+          if (confidence > 0.8 && i == (event.results.length - 1) && !event.results[i].isFinal) {
 
             if (new_result.startsWith(interim_result)) {
               new_result = new_result.substring(interim_result.length);
@@ -48,7 +41,6 @@ $(document).ready(function () {
                 socket.emit('new_result', { data: new_result });
               }
 
-              //console.log(new_result);
             } else {
               interim_result = new_result;
 
@@ -57,7 +49,6 @@ $(document).ready(function () {
                 socket.emit('new_result', { data: new_result });
               }
 
-              //console.log(new_result)
             }
           }
 
@@ -66,6 +57,7 @@ $(document).ready(function () {
           interim_result = '';
         } else {
           interim_transcript += event.results[i][0].transcript;
+          socket.emit('new_raw_result', {data: new_result});
         }
       }
 
