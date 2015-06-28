@@ -4,9 +4,7 @@ html
     meta(charset="utf-8")
     title Hint - Hints for your Conversation
     link(href="./stylesheets/bootstrap.min.css", rel="stylesheet", type="text/css")
-    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
-    link(href="http://fonts.googleapis.com/css?family=Lato:400,300", rel="stylesheet", type="text/css")
-    script(src="http://code.jquery.com/jquery-1.10.2.min.js")
+    script(src="./js/jquery-1.10.2.min.js")
     script(src='/socket.io/socket.io.js')
     script.
       var socket = io('http://' + location.host);
@@ -25,17 +23,11 @@ html
       <div class="hint_title">{{ title }}</div>
       <div class="hint_body">{{ body }}</div>
       </div>
-      <div class="panel-footer">
-      <a href="{{link}}" class="pin"> give me more <i class="fa fa-angle-right" style="margin-right:1px;"></i></a> </div>
-      </div>
     script#template_no_image(type="x-tmpl-mustache")
       <div class="panel panel-default" class="hint">
       <div class="panel-body no-image">
       <div class="hint_title">{{ title }}</div>
       <div class="hint_body">{{ body }}</div>
-      </div>
-      <div class="panel-footer">
-      <a href="{{link}}" class="pin"> give me more <i class="fa fa-angle-right" style="margin-right:1px;"></i></a> </div>
       </div>
     .container
       .row2
