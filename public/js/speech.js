@@ -11,7 +11,6 @@ $(document).ready(function () {
     recognition.onresult = function (event) {
       var interim_transcript = '';
       for (var i = event.resultIndex; i < event.results.length; ++i) {
-        // console.log(event.results);
 
           var confidence = event.results[i][0].confidence;
           if ((confidence > 0.85) && i === (event.results.length - 1) && !event.results[i].isFinal) {
@@ -27,7 +26,7 @@ $(document).ready(function () {
                 socket.emit('new_result', { data: new_result });
               }
 
-              console.log(new_result);
+              //console.log(new_result);
             } else {
               interim_result = new_result;
 
@@ -36,7 +35,7 @@ $(document).ready(function () {
                 socket.emit('new_result', { data: new_result });
               }
 
-              console.log(new_result)
+              //console.log(new_result)
             }
           }
           
