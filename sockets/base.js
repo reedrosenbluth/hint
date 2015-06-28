@@ -31,19 +31,19 @@ function processResult(socket, result, results, isRaw) {
     entities = checkWhiteList(text);
   }
 
-  console.log(result);
+  //(result);
   
   entities.forEach(function(entity, index, array) {
     var entity_text = entity.text;
     var tags = nlp.pos(entity_text).tags()[0];
-    console.log(tags);
-    if (results.indexOf(entity_text) === -1 && tags.indexOf('PRP') === -1) {
+    //console.log(tags);
+    if (results.indexOf(entity_text) === -1 && (tags.indexOf('PRP') === -1) && (tags.indexOf('PP') === -1)) {
         console.log('entity: ' + entity_text);
         results.push(entity_text);
         info.getWikiInfo(entity_text)
             .then(function (data) {
                 socket.emit('new_hint', data);
-                console.log(data);
+                //console.log(data);
             });
     }
   });
@@ -53,7 +53,7 @@ function checkWhiteList (text) {
   var entities = [];
   white_list.forEach(function(word) {
     if (text.indexOf(word) > -1) {
-      console.log('RAW WHITELIST')
+      //console.log('RAW WHITELIST')
       entities.push({text: word});
     };
   })

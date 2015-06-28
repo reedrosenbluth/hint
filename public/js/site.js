@@ -35,11 +35,11 @@ function addHint(title, body, image, link)
 
 socket.on('new_hint', function (data) {
     addHint(data.title, data.summary, data.image);
-    console.log(data);
+    //console.log(data);
 })
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
 
     // addHint("Python","Python is a programming language.");
     // addHint("Mark Zuckerberg", "Mark Zuckerberg invented facebook. This is a lot more text about him.", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg/220px-Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg");
