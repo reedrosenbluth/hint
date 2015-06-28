@@ -1,14 +1,36 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  button Start
-  input(type="text", style="width: 100%")
-  span#final_span.final
-  hr
-  span#interim_span.interim
-  h1= 'Hint'
-  ul
-    each person in people
-      li= person.text
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title Hint - Hints for your Conversation
+    link(href="./stylesheets/bootstrap.min.css", rel="stylesheet", type="text/css")
+    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+    link(href="http://fonts.googleapis.com/css?family=Lato:400,300", rel="stylesheet", type="text/css")
+    script(src="http://code.jquery.com/jquery-1.10.2.min.js")
+    script(src="./js/mustache.min.js")
+    link(rel="stylesheet", href="./stylesheets/styles.css")
+  body
+    script#template(type="x-tmpl-mustache")
+      <div class="panel panel-default" id="hint">
+      <div class="panel-body" id="test">
+      {{ name }}
+      </div>
+      <div class="panel-footer">
+      <a href="#" class="pin"> give me more <i class="fa fa-angle-down" style="margin-right:1px;"></i></a> </div>
+      </div>
+    .container
+      .row2
+        h5
+          a(href="#")
+            span(style="font-weight:400;") hint
+            | :
+            span(color="#555") hints for your conversation
+        .clearfix
+      #hints.row
+      footer.footer
+        .container
+          .pull-right(style="margin-top:-2px;")
+            a(href="#", style="margin-right:12px;") get the code
+            a(href="#") about hint
+      script(src="./js/site.js")
+    // /container
