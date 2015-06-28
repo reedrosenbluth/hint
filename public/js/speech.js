@@ -24,7 +24,7 @@ $(document).ready(function () {
       for (var i = event.resultIndex; i < event.results.length; ++i) {
 
           var confidence = event.results[i][0].confidence;
-          if (i === (event.results.length - 1) && !event.results[i].isFinal) {
+          if (confidence > 0.85 && (i === (event.results.length - 1)) && !event.results[i].isFinal) {
 
             new_result = event.results[i][0].transcript;
 

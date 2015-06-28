@@ -10,7 +10,7 @@ function start_speak()
 
 function addHint(title, body, image, link)
 {
-    if (typeof image === 'undefined'){
+    if (image === null){
         var template = $('#template_no_image').html();
         image = "nothing";
     }
@@ -22,10 +22,10 @@ function addHint(title, body, image, link)
     {
         link = "#";
     }
-    console.log(template);
+    //console.log(template);
     Mustache.parse(template);   // optional, speeds up future uses
     var rendered = Mustache.render(template, {title: title, body: body, image: image, link:link});
-    console.log(rendered);
+    //console.log(rendered);
     $('#hints').prepend(rendered);
     $('#hint').animate({
         top:"+=200",
