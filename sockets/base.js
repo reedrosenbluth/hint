@@ -14,13 +14,15 @@ module.exports = function (io) {
       var people = nlp.pos(text).people();
       
       entities.forEach(function(entity, index, array) {
-        console.log('entity: ' + entity.text);
+        // console.log('entity: ' + entity.text);
         info.getWikiInfo(entity.text)
           .then(function(result) {
-            console.log(result)
             socket.emit('new_hint', result)
           })
-      })
+          .catch(function(err) {
+            console.log(err);
+          });
+      });
 
       // socket.emit('new_hint', {})
 
