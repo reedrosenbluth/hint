@@ -70,13 +70,14 @@ body {
 
     .hint_title{
         font-size:1.5em;
-        line-height:1.6em;
+        line-height:1.7em;
         font-weight:400;
         color:#292929;
     }
 
     .hint_body{
-        font-size:1.075em;
+        font-size:1.2em;
+        line-height: 1.3em;
     }
     .panel-footer{
         text-align:center;

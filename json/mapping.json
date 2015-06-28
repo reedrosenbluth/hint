@@ -31,7 +31,7 @@
   "hash" : "Hash table",
   "Cache" : "Cache (computing)",
   "Matrix" : "Matrix (mathematics)",
-  "server" : "Server (computing)",
+  "Server" : "Server (computing)",
   "Zuckerberg" : "Mark Zuckerberg",
   "Brynn": "Sergey Brin",
   "Brin": "Sergey Brin",
@@ -47,5 +47,16 @@
   "emacs": "Emacs",
   "emax": "Emacs",
   "Uber": "Uber (company)",
-  "Palantir": "Palantir Technologies"
+  "Palantir": "Palantir Technologies",
+  "x86": "X86",
+  "Java": "Java (programming language)",
+  "AirBNB": "Airbnb",
+  "iOS": "IOS",
+  "iPhone": "IPhone",
+  "neural network": "Artificial neural network",
+  "Node": "Node.js",
+  "NLP": "Natural language processing",
+  "Chrome": "Google Chrome",
+  "API": "Application programming interface",
+  "Augmenting reality": "Augmented reality"
 }

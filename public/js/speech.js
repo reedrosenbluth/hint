@@ -4,9 +4,11 @@ if (typeof String.prototype.startsWith != 'function') {
   };
 }
 
+var recognition;
+
 $(document).ready(function () {
   if ('webkitSpeechRecognition' in window) {
-    var recognition = new webkitSpeechRecognition();
+    recognition = new webkitSpeechRecognition();
     var final_transcript = '';
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -14,7 +16,7 @@ $(document).ready(function () {
 
     recognition.onspeechstart = function(event){
         start_speak();
-        console.log("speech start");
+        //console.log("speech start");
     }
 
 
@@ -29,7 +31,7 @@ $(document).ready(function () {
 
           var confidence = event.results[i][0].confidence;
           var new_result = event.results[i][0].transcript;
-          console.log(confidence)
+          //console.log(confidence)
           if (confidence > 0.85 && i == (event.results.length - 1) && !event.results[i].isFinal) {
             if (new_result.startsWith(interim_result)) {
               new_result = new_result.substring(interim_result.length);

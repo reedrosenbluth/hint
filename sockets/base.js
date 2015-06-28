@@ -1,4 +1,4 @@
-var nlp = require('nlp_compromise')
+var nlp = require('nlp_compromise');
 var info = require('../lib/info');
 var http = require('superagent');
 var fs = require('fs');
@@ -23,13 +23,12 @@ module.exports = function (io) {
 
   });
 
-}
+};
 
 function processResult(socket, result, results, isRaw) {
   socket.emit('started_speaking');
   var text = result.data;
   var entities = nlp.pos(text).nouns();
-  //var people = nlp.pos(text).people();
 
   if (isRaw) {
     checkWhiteList(socket, text, results);
@@ -40,8 +39,7 @@ function processResult(socket, result, results, isRaw) {
     var entity_text = entity.text;
     var tags = nlp.pos(entity_text).tags()[0];
     if (!isBlackListed(entity_text)) {
-      getWikiData(socket, entity_text, results, tags)
-
+      getWikiData(socket, entity_text, results, tags);
     }
   });
 }
@@ -51,18 +49,20 @@ function checkWhiteList (socket, entity_text, results) {
   white_list.forEach(function(word) {
     if (entity_text.toLowerCase().indexOf(word.toLowerCase()) > -1) {
       getWikiData(socket, word, results);
-    };
-  })
+    }
+  });
 }
 
 function isBlackListed (entity_text) {
+    var found = false;
   black_list.forEach(function (word) {
-    if (entity_text.toLowerCase().indexOf(word.toLowerCase()) > -1) {
-      return true;
+    if (entity_text.toLowerCase() === word.toLowerCase()) {
+        console.log(entity_text + 'is blacklisted');
+        found = true;
     }
-  })
+  });
 
-  return false;
+  return found;
 }
 
 function getWikiData(socket, entity_text, results, tags) {
@@ -74,9 +74,9 @@ function getWikiData(socket, entity_text, results, tags) {
       tags = [];
     }
 
-    if (results.indexOf(entity_text) === -1 && tags.indexOf('PRP') === -1 && (tags.indexOf('PP') === -1)) {
+    if (results.indexOf(entity_text.toLowerCase()) === -1 && tags.indexOf('PRP') === -1 && (tags.indexOf('PP') === -1)) {
         console.log('entity: ' + entity_text);
-        results.push(entity_text);
+        results.push(entity_text.toLowerCase());
         info.getWikiInfo(entity_text)
             .then(function (data) {
                 socket.emit('new_hint', data);

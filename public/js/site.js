@@ -1,7 +1,7 @@
 
 function stop_speak()
 {
-    console.log("stopped");
+    //console.log("stopped");
     $("#bars").children().addClass("bar_no_a");
 }
 
