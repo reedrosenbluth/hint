@@ -6,6 +6,11 @@ if (typeof String.prototype.startsWith != 'function') {
 
 var socket = io('http://' + location.host);
 
+socket.on('new_hint', function (data) {
+  console.log(data);
+  addHint(data.title, data.summary, data.image)
+})
+
 $(document).ready(function () {
   if ('webkitSpeechRecognition' in window) {
     var recognition = new webkitSpeechRecognition();
