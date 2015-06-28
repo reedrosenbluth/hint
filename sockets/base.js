@@ -67,7 +67,6 @@ function isBlackListed (entity_text) {
 }
 
 function getWikiData(socket, entity_text, results, tags) {
-  console.log("$$$$$$");
 
   // console.log(entity_text);
     var found_in_cache = false;
@@ -83,6 +82,16 @@ function getWikiData(socket, entity_text, results, tags) {
       }
       entity_text2 = white_list_mapping[entity_text.toLowerCase()];
     }
+    else
+    {
+      if (white_list_cache.hasOwnProperty(entity_text))
+      {
+        found_in_cache = true;
+        data = white_list_cache[entity_text];    
+          
+      }
+      entity_text2 = entity_text;
+    }
     // console.log(entity_text);
     // console.log("***");
 
@@ -95,6 +104,7 @@ function getWikiData(socket, entity_text, results, tags) {
         results.push(entity_text.toLowerCase());
         results.push(white_list_mapping[entity_text.toLowerCase()]);
         console.log("**** USED THE CACHE ****");
+        console.log(entity_text2);
         socket.emit('new_hint', data);
 
         // console.log(data);
@@ -105,13 +115,14 @@ function getWikiData(socket, entity_text, results, tags) {
       if (results.indexOf(entity_text.toLowerCase()) === -1 && results.indexOf(entity_text2) === -1 && tags.indexOf('PRP') === -1 && (tags.indexOf('PP') === -1)) {
         // console.log(results);
           console.log("**** USED THE WEB ****");
+          console.log(entity_text2);
           // console.log('entity: ' + entity_text);
           results.push(entity_text.toLowerCase());
           results.push(entity_text2);
-          info.getWikiInfo(entity_text)
+          info.getWikiInfo(entity_text2)
               .then(function (data) {
                   socket.emit('new_hint', data);
-                  console.log(data);
+           //       console.log(data);
               });
 
           //getStockTicker(entity_text)
