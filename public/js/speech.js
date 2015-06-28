@@ -29,7 +29,8 @@ $(document).ready(function () {
 
           var confidence = event.results[i][0].confidence;
           var new_result = event.results[i][0].transcript;
-          if (confidence > 0.8 && i == (event.results.length - 1) && !event.results[i].isFinal) {
+          console.log(confidence)
+          if (confidence > 0.85 && i == (event.results.length - 1) && !event.results[i].isFinal) {
             if (new_result.startsWith(interim_result)) {
               new_result = new_result.substring(interim_result.length);
               interim_result += new_result;
