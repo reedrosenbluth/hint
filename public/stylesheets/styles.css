@@ -120,7 +120,6 @@ img {
 }
 
 .bar_no_a {
-    animation:none !important;
 }
 
 .bar {
@@ -130,6 +129,7 @@ img {
     position: absolute;
     width: 3px;
     animation: sound 0ms -800ms linear infinite alternate;
+    -webkit-animation:  sound 0ms -800ms linear infinite alternate;
 }
 
 @keyframes sound {
@@ -143,13 +143,24 @@ img {
     }
 }
 
-.bar:nth-child(1)  { left: 1px; animation-duration: 274ms; }
-.bar:nth-child(2)  { left: 5px; animation-duration: 233ms; }
-.bar:nth-child(3)  { left: 9px; animation-duration: 207ms; }
-.bar:nth-child(4)  { left: 13px; animation-duration: 258ms; }
-.bar:nth-child(5)  { left: 17px; animation-duration: 200ms; }
-.bar:nth-child(6)  { left: 21px; animation-duration: 227ms; }
-.bar:nth-child(7)  { left: 25px; animation-duration: 241ms; }
-.bar:nth-child(8)  { left: 29px; animation-duration: 219ms; }
-.bar:nth-child(9)  { left: 33px; animation-duration: 287ms; }
-.bar:nth-child(10) { left: 37px; animation-duration: 242ms; }​
+@-webkit-keyframes sound {
+    0% {
+       opacity: .35;
+        height: 3px;
+    }
+    100% {
+        opacity: 1;
+        height: 20px;
+    }
+}
+
+.bar:nth-child(1)  { left: 1px; animation-duration: 274ms; -webkit-animation-duration: 274ms; }
+.bar:nth-child(2)  { left: 5px; animation-duration: 233ms; -webkit-animation-duration: 233ms; }
+.bar:nth-child(3)  { left: 9px; animation-duration: 207ms; -webkit-animation-duration: 207ms;}
+.bar:nth-child(4)  { left: 13px; animation-duration: 258ms; -webkit-animation-duration: 258ms;}
+.bar:nth-child(5)  { left: 17px; animation-duration: 200ms; -webkit-animation-duration: 200ms;}
+.bar:nth-child(6)  { left: 21px; animation-duration: 227ms; -webkit-animation-duration: 227ms;}
+.bar:nth-child(7)  { left: 25px; animation-duration: 241ms; -webkit-animation-duration: 241ms;}
+.bar:nth-child(8)  { left: 29px; animation-duration: 219ms; -webkit-animation-duration: 219ms;}
+.bar:nth-child(9)  { left: 33px; animation-duration: 287ms; -webkit-animation-duration: 287ms;}
+.bar:nth-child(10) { left: 37px; animation-duration: 242ms; -webkit-animation-duration: 242ms;}​
