@@ -103,6 +103,7 @@ function getWikiData(socket, entity_text, results, tags) {
         // console.log(results);
         results.push(entity_text.toLowerCase());
         results.push(white_list_mapping[entity_text.toLowerCase()]);
+        results.push(entity_text2);
         console.log("**** USED THE CACHE ****");
         console.log(entity_text2);
         socket.emit('new_hint', data);

@@ -114,9 +114,9 @@ img {
 #bars {
     height: 20px;
     right: 36%;
-    position: absolute;
+    position: relative;
 
-    top: 11px;
+    top: -35px;
     width: 40px;
 }
 
@@ -126,6 +126,9 @@ img {
 
 }
 
+.clearfix{
+    height:1px;
+}
 .bar {
    background: #adadad;
     bottom: 1px;
