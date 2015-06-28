@@ -1,15 +1,14 @@
 var express = require('express');
 var nlp = require('nlp_compromise');
+var WikiData = require('../lib/wikidata');
+var info = require('../lib/info');
 var router = express.Router();
 
-var sample = 'So I just had this meeting with Mark Zuckerberg';
-
-router.get('/', function(req, res, next) {
-  var people = nlp.pos(sample).people();
-  var data = {
-    people: people
-  };
-  res.render('index', data);
+router.get('/:search', function(req, res, next) {
+  info.getWikiInfo(req.params.search.replace('+',' '))
+    .then(function(data) {
+      res.render('index', data);
+    });
 });
 
 module.exports = router;
