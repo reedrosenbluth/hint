@@ -22,6 +22,6 @@
     "superagent": "^1.2.0",
     "wikidata-sdk": "0.0.4",
     "wikijs": "^0.1.1",
-    "wmcommons": "0.0.1",
+    "wmcommons": "0.0.1"
   }
 }

@@ -1,4 +1,5 @@
 var nlp = require('nlp_compromise')
+var info = require('../lib/info');
 
 //var results = [];
 
@@ -20,7 +21,11 @@ function processResult(result) {
   //});
   //
   entities.forEach(function(entity, index, array) {
-    console.log('entity: ' + entity.text);
+    var json_response = info.getWikiInfo(entity)
+        .then(function(data) {
+          res.render('index', data);
+        });
+    console.log(json_response);
   })
 
   //people.forEach(function(person, index, array) {
