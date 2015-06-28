@@ -40,7 +40,6 @@ function addHint(title, body, image, link)
 
 socket.on('new_hint', function (data) {
     addHint(data.title, data.summary, data.image);
-    //console.log(data);
 })
 
 $( document ).ready(function() {

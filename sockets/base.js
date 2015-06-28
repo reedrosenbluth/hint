@@ -1,6 +1,6 @@
 var nlp = require('nlp_compromise')
-var nlp = require('nlp_compromise');
 var info = require('../lib/info');
+var http = require('superagent');
 
 var black_list = [];
 var white_list = ['Mark Zuckerberg', 'Facebook'];
@@ -39,14 +39,40 @@ function processResult(socket, result, results, isRaw) {
     if (results.indexOf(entity_text) === -1 && (tags.indexOf('PRP') === -1) && (tags.indexOf('PP') === -1)) {
         console.log('entity: ' + entity_text);
         results.push(entity_text);
+
         info.getWikiInfo(entity_text)
-            .then(function (data) {
-                socket.emit('new_hint', data);
-                //console.log(data);
-            });
+          .then(function (data) {
+            socket.emit('new_hint', data);
+            //console.log(data);
+          });
+
+      getStockTicker(entity_text)
+          .then(function (data) {
+            console.log(data);
+            //console.log(data);
+          });
+
     }
   });
 }
+
+function getStockTicker(entity) {
+  url = "http://dev.markitondemand.com/Api/v2/Lookup?input=" + entity;
+  console.log(url);
+  return new Promise(function(fulfill, reject) {
+    http
+        .get(url)
+        .end(function(err, res) {
+          if (err) {
+            reject(err);
+          }
+          var xml = res;
+          console.log('xml' + xml);
+          fulfill(xml);
+        });
+  });
+}
+
 
 function checkWhiteList (text) {
   var entities = [];
