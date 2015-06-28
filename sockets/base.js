@@ -83,11 +83,11 @@ function getWikiData(socket, entity_text, results, tags) {
                 console.log(data);
             });
 
-        getStockTicker(entity_text)
-            .then(function (data) {
-                console.log(data);
-                //console.log(data);
-            });
+        //getStockTicker(entity_text)
+        //    .then(function (data) {
+        //        console.log(data);
+        //        //console.log(data);
+        //    });
     }
 }
 
