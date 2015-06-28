@@ -1,0 +1,155 @@
+
+        /* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #f5f5f5;
+}
+
+        body{
+            background:#f2f2f2;
+        }
+    .row{
+        max-width:500px;
+        margin:0 auto;
+
+    }
+    .row2{
+        text-align:center;
+        max-width:700px;
+        margin:0 auto;
+        padding-bottom:5px;
+
+    }
+    h5{
+        color:white;
+        font-weight:300;
+        z-index:1000;
+    }
+
+    a {
+        color:#242424;
+    }
+
+    a:hover{
+        color:#8b88d7;
+        text-decoration: none;
+    }
+
+
+    #hint{
+        display:none;
+        position:relative;
+        top:-200px;
+    }
+
+    .pin{
+        color:#666;
+    }
+    .pin:hover{
+        text-decoration:none !important;
+        color:#292929 !important;
+    }
+    .panel-body{
+        font-weight:400;
+        z-index:1;
+        font-size:1.1em;
+        line-height:1.2em;
+        font-weight:300;
+    }
+
+    .hint_title{
+        font-size:1.5em;
+        line-height:1.6em;
+        font-weight:400;
+        color:#292929;
+    }
+
+    .hint_body{
+        font-size:1.0em;
+    }
+    .panel-footer{
+        text-align:center;
+        height:35px;
+        padding-top:5px;
+    }
+    .panel-footer:hover{
+        cursor:pointer;
+
+    }
+
+.thumbnail{
+    margin-top:15px;
+    margin-left:10px;
+    overflow:hidden;
+    width:auto;
+    height:140px;
+    margin-right:10px;
+}
+
+img {
+    margin-right:10px;
+    max-width:170px; /* you can use % */
+    height: auto;
+    margin-bottom:10px;
+    max-height:130px;
+}
+
+.no-image{
+    font-size:1.2em;
+}
+
+#bars {
+    height: 20px;
+    right: 36%;
+    position: absolute;
+
+    top: 11px;
+    width: 40px;
+}
+
+.bar_no_a {
+    animation:none !important;
+}
+
+.bar {
+   background: #adadad;
+    bottom: 1px;
+    height: 10px;
+    position: absolute;
+    width: 3px;
+    animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+    0% {
+       opacity: .35;
+        height: 3px;
+    }
+    100% {
+        opacity: 1;
+        height: 20px;
+    }
+}
+
+.bar:nth-child(1)  { left: 1px; animation-duration: 274ms; }
+.bar:nth-child(2)  { left: 5px; animation-duration: 233ms; }
+.bar:nth-child(3)  { left: 9px; animation-duration: 207ms; }
+.bar:nth-child(4)  { left: 13px; animation-duration: 258ms; }
+.bar:nth-child(5)  { left: 17px; animation-duration: 200ms; }
+.bar:nth-child(6)  { left: 21px; animation-duration: 227ms; }
+.bar:nth-child(7)  { left: 25px; animation-duration: 241ms; }
+.bar:nth-child(8)  { left: 29px; animation-duration: 219ms; }
+.bar:nth-child(9)  { left: 33px; animation-duration: 287ms; }
+.bar:nth-child(10) { left: 37px; animation-duration: 242ms; }​
