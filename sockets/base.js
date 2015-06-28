@@ -67,7 +67,7 @@ function isBlackListed (entity_text) {
 }
 
 function getWikiData(socket, entity_text, results, tags) {
-  console.log("$$$$$$");
+  //console.log("$$$$$$");
 
   // console.log(entity_text);
     var found_in_cache = false;
@@ -112,13 +112,8 @@ function getWikiData(socket, entity_text, results, tags) {
               .then(function (data) {
                   socket.emit('new_hint', data);
                   console.log(data);
-              });
+              }).catch(function(err){});
 
-          //getStockTicker(entity_text)
-          //    .then(function (data) {
-          //        console.log(data);
-          //        //console.log(data);
-          //    });
       }
     }
 }
