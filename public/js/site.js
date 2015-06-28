@@ -33,6 +33,11 @@ function addHint(title, body, image, link)
     },1000);
 }
 
+socket.on('new_hint', function (data) {
+    addHint(data.title, data.summary, data.image);
+    console.log(data);
+})
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
