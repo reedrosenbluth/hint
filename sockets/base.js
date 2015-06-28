@@ -33,30 +33,25 @@ function processResult(socket, result, results, isRaw) {
 
   if (isRaw) {
     checkWhiteList(socket, text, results);
-    return
+    return;
   }
 
-  entities.forEach(function(entity, index, array) {
+  entities.forEach(function (entity, index, array) {
     var entity_text = entity.text;
     var tags = nlp.pos(entity_text).tags()[0];
-    
+
     if (!isBlackListed(entity_text)) {
       getWikiData(socket, entity_text, results, tags)
     }
   });
 }
 
-function checkWhiteList (socket, text, results) {
-  var entities = [];
-
+function checkWhiteList (socket, entity_text, results) {
   white_list.forEach(function(word) {
-    if (text.toLowerCase().indexOf(word.toLowerCase()) > -1) {
-      entities.push({text: word});
-      getWikiData(socket, text, results);
+    if (entity_text.toLowerCase().indexOf(word.toLowerCase()) > -1) {
+      getWikiData(socket, word, results);
     };
   })
-
-  return entities;
 }
 
 function isBlackListed (entity_text) {
