@@ -9,10 +9,11 @@ module.exports = function (io) {
     //console.log( "A user connected" );
 
     function processResult(result) {
+      socket.emit("start_speak", "true")
       var text = result.data;
       var entities = nlp.pos(text).nouns();
       var people = nlp.pos(text).people();
-      
+
       entities.forEach(function(entity, index, array) {
         console.log('entity: ' + entity.text);
         info.getWikiInfo(entity.text)

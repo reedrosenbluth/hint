@@ -1,12 +1,17 @@
+
 function stop_speak()
 {
+    console.log("stopped");
     $("#bars").children().addClass("bar_no_a");
 }
 
 function start_speak()
 {
-    $("#bars").children().removeClass("bar_no_a");
+    if ($("#bars").children().hasClass("bar_no_a")){
+        $("#bars").children().removeClass("bar_no_a");    
+    }
 }
+
 
 function addHint(title, body, image, link)
 {
@@ -34,6 +39,8 @@ function addHint(title, body, image, link)
 }
 
 $( document ).ready(function() {
+    stop_speak();
+
     console.log( "ready!" );
 
     // addHint("Python","Python is a programming language.");
