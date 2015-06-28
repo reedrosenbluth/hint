@@ -6,9 +6,10 @@ var black_list = [];
 var white_list = ['Mark Zuckerberg', 'Facebook'];
 
 module.exports = function (io) {
-  
+
   // socket.io events
   io.on( "connection", function( socket ) {
+
     var already_heard = [];
 
     socket.on('new_result', function (result) {
@@ -31,8 +32,6 @@ function processResult(socket, result, results, isRaw) {
     entities = checkWhiteList(text);
   }
 
-  //(result);
-  
   entities.forEach(function(entity, index, array) {
     var entity_text = entity.text;
     var tags = nlp.pos(entity_text).tags()[0];

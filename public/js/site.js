@@ -1,12 +1,17 @@
+
 function stop_speak()
 {
+    console.log("stopped");
     $("#bars").children().addClass("bar_no_a");
 }
 
 function start_speak()
 {
-    $("#bars").children().removeClass("bar_no_a");
+    if ($("#bars").children().hasClass("bar_no_a")){
+        $("#bars").children().removeClass("bar_no_a");    
+    }
 }
+
 
 function addHint(title, body, image, link)
 {
@@ -39,8 +44,7 @@ socket.on('new_hint', function (data) {
 })
 
 $( document ).ready(function() {
-    //console.log( "ready!" );
-
+    stop_speak();
     // addHint("Python","Python is a programming language.");
     // addHint("Mark Zuckerberg", "Mark Zuckerberg invented facebook. This is a lot more text about him.", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg/220px-Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg");
     $(".panel-footer").on("mouseover", function(){

@@ -12,7 +12,18 @@ $(document).ready(function () {
     recognition.interimResults = true;
     var interim_result = '';
 
+    recognition.onspeechstart = function(event){
+        start_speak();
+        console.log("speech start");
+    }
+
+
     recognition.onresult = function (event) {
+
+      start_speak();
+      setTimeout(function () {
+          stop_speak();
+      }, 500);
       var interim_transcript = '';
       for (var i = event.resultIndex; i < event.results.length; ++i) {
 
