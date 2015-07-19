@@ -37,7 +37,7 @@
   "brin": "Sergey Brin",
   "ycombinator": "Y Combinator (company)",
   "work day": "Workday",
-  "next door": "NextDoor",
+  "next door": "Nextdoor",
   "wealth front": "Wealthfront",
   "greylock": "Greylock Partners",
   "greylock ventures": "Greylock Partners",
@@ -100,5 +100,7 @@
   "meteor" : "Meteor (web framework)",
   "meteorjs" : "Meteor (web framework)",
   "stanford": "Stanford University",
-  "yahoo": "Yahoo!"
+  "yahoo": "Yahoo!",
+  "one more thing": "Stevenote",
+  "hackathon": "Hackathon"
 }

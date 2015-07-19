@@ -31,7 +31,7 @@ $(document).ready(function () {
 
           var confidence = event.results[i][0].confidence;
           var new_result = event.results[i][0].transcript;
-          //console.log(confidence)
+          console.log(new_result)
           if (confidence > 0.85 && i == (event.results.length - 1) && !event.results[i].isFinal) {
             if (new_result.startsWith(interim_result)) {
               new_result = new_result.substring(interim_result.length);

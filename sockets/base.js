@@ -32,16 +32,16 @@ function processResult(socket, result, results, isRaw) {
   var entities = nlp.pos(text).nouns();
 
   if (isRaw) {
-    checkWhiteList(socket, text, results);
-    return;
+    // checkWhiteList(socket, text, results);
+    // return;
   }
 
   entities.forEach(function (entity, index, array) {
     var entity_text = entity.text;
     var tags = nlp.pos(entity_text).tags()[0];
-    if (!isBlackListed(entity_text)) {
+    // if (isBlackListed(entity_text)) {
       getWikiData(socket, entity_text, results, tags);
-    }
+    // }
   });
 }
 
@@ -113,7 +113,7 @@ function getWikiData(socket, entity_text, results, tags) {
             .query({ body: data.summary })
             .end(function(err, res){
                 console.log(err);
-            console.log(res);
+            // console.log(res);
         });
         // console.log(data);
     }
